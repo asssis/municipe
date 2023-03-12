@@ -1,11 +1,4 @@
-Olá Assis,
-
-Conforme falamos, segue desafio. Boa sorte!!!
-
-Introdução (Backend): 
-Iremos fazer uma grande atualização e mudanças no nosso código. Por isso, é imprescindível que você saiba Ruby e Rails. Algumas apps nossas são legadas, monolíticas, mesmo no backend você irá precisar lidar com um pouco com frontend (mas fica tranquilo, te ajudamos nisso). Tempo é fundamental para nós, porém, vamos focar na qualidade do seu trabalho, por isso, leve o tempo que achar necessário. 
-
-Desafio: 
+# Desafio
 Crie um CRUD de municipes (Exceto deletar). O munícipe tem status ativo e inativo. Idealmente, só precisa ser 2 páginas: Listagem de CRUD (com opções para navegar), e o cadastro em si. 2 páginas é apenas uma sugestão, você é livre para montar o UI/UX da forma que achar melhor. 
 
 Ter uma entidade relacionada chamada Munícipe. Essa entidade cadastrar cidadãos (pessoas) dentro de um município. As seguintes regras devem ser seguidas:
@@ -41,5 +34,3 @@ Pense que essas regras podem ser mudadas com uma frequência alta; Gostamos de o
 Tools: 
 Ruby, Ruby on Rails e Postgres são obrigatórios; Elasticsearch/Kafka (opcional, plus); Utilize ActionView, porém, AssetPipeline/Sprockets ou uma abordagem SPA junto ao rails; 
 
-Critérios: 
-TUDO, absolutamente TUDO, será olhado (sim, teremos carinho pelo seu tempo gasto e olharemos com destreza seu teste); Esse teste é backend, então, pesará muito como você realizou; Frontend é opcional para o seu caso, mas, irá contar muito positivo como você fará; Ver seu teste rodando em modo produção conta MUITO. Fica ao seu critério se faz e em qual plataforma; Lembre-se que o melhor de um profissional é sua atitude quanto a resolução de problemas. Interprete este item como desejar ;)
