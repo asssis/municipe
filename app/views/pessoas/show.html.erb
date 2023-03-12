@@ -1,0 +1,35 @@
+<p style="color: green"><%= notice %></p>
+ 
+<h3>Municipe: <%= @pessoa.nome %></h3> 
+ 
+
+<div class="mt-4 mb-4 text-right">
+  <img src="<%= @pessoa.imagem_url%>" style="width: 200px;" class="img-thumbnail">
+</div>
+
+
+<%= simple_form_for(@pessoa) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs row">
+    <%= f.input :nome, disabled: true, wrapper_html: { class: 'col-md-6' } %>
+    <%= f.input :email, disabled: true, wrapper_html: { class: 'col-md-6' }  %>
+    <%= f.input :dt_nascimento_format, label: "Data Nascimento", disabled: true, wrapper_html: { class: 'col-md-3' } %>
+    <%= f.input :cpf, disabled: true, wrapper_html: { class: 'col-md-3' } %>
+    <%= f.input :cns, disabled: true, wrapper_html: { class: 'col-md-3' }  %>
+    <%= f.input :telefone, disabled: true, wrapper_html: { class: 'col-md-3' }  %>
+    <%= f.input :cep, disabled: true, wrapper_html: { class: 'col-md-2' }  %>
+    <%= f.input :estado_nome, label: "Estado", disabled: true, wrapper_html: { class: 'col-md-5' }  %>
+    <%= f.input :municipio_nome, label: "Municipio", disabled: true, wrapper_html: { class: 'col-md-5' }  %>
+    <%= f.input :logradouro, disabled: true, wrapper_html: { class: 'col-md-7' }  %>
+    <%= f.input :complemento, disabled: true, wrapper_html: { class: 'col-md-5' }  %>
+    <%= f.input :bairro, disabled: true, wrapper_html: { class: 'col-md-9' }  %>
+    <%= f.input :cod_ibge, disabled: true, wrapper_html: { class: 'col-md-3' }  %>
+  </div>
+<% end %>
+
+<div>
+  <%= link_to "Edit this pessoa", edit_pessoa_path(@pessoa) %> |
+  <%= link_to "Back to pessoas", pessoas_path %>
+</div>

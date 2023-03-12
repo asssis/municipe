@@ -1,0 +1,19 @@
+default: &default
+  encoding: unicode
+  adapter: postgresql
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5432
+  host: db-posgres
+  timeout: 5000
+
+production:
+  <<: *default
+  username: postgres
+  password: easy_password
+  database: municipe
+ 
+development:
+  <<: *default
+  username: postgres
+  password: easy_password
+  database: municipe

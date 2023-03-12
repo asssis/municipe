@@ -1,0 +1,36 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Municipes</h1>
+<div style="margin-top:80px; margin-botton:50px">
+  <form> 
+    <div class="btn-group btn-group-toggle col-md-4 mb-5" data-toggle="buttons"> 
+      <input placeholder="Pesquisar" type="text" name="filter" value="<%=@filter%>" class="form-control"></input>
+      <button type="submit" class="btn btn-primary">Buscar</button>
+    </div>
+  </form>
+  
+
+<div>
+
+<table class="table">
+<thead>
+  <tr>
+  <th scope="col"></th>
+    <th scope="col">Nome</th>
+    <th scope="col">Email</th>
+    <th scope="col">Logradouro</th>
+    <th scope="col">Bairro</th>
+    <th scope="col">
+    <%= link_to "New pessoa", new_pessoa_path, class: "btn btn-outline-primary btn-sm pull-right col-md-12" %>
+    </th> 
+  </tr>
+</thead>
+<tbody>
+<% @pessoas.each do |pessoa| %>
+  <%= render pessoa %>
+<% end %> 
+</tbody>
+</table>
+<div style="float:right; margin-bottom: 50px;">
+  <%= paginate @pessoas %>
+<div>

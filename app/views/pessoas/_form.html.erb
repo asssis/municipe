@@ -1,0 +1,98 @@
+<style>
+input[type="file"] {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    width:100%;
+    text-align: center;
+}
+</style>
+
+<%= simple_form_for(@pessoa) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="mt-4 mb-4 text-right"  style="width: 200px;">
+    <img src="/uploads/avatar.jpg" id="preview_img" class="img-thumbnail">
+    <%= f.file_field :imagem, class: "form-control", onchange: "loadFile(event)", accept: "image/*" %>
+
+    <label for="pessoa_imagem" class="custom-file-upload">
+      <i class="fa fa-cloud-upload"></i> Upload Foto
+    </label> 
+  </div>
+
+
+  <div class="form-inputs row">  
+    <%= f.input :nome, wrapper_html: { class: 'col-md-6' } %>
+    <%= f.input :email, wrapper_html: { class: 'col-md-6' }  %>
+    <%= f.input :dt_nascimento, label: "Data Nascimento", wrapper_html: { class: 'col-md-3' }, html5: true %>
+    <%= f.input :cpf, wrapper_html: { class: 'col-md-3' } %>
+    <%= f.input :cns, wrapper_html: { class: 'col-md-3' }  %>
+    <%= f.input :telefone, wrapper_html: { class: 'col-md-3' }  %>
+    <%= f.input :cep, wrapper_html: { class: 'col-md-2' }  %> 
+    <%= f.association :estado, collection: Estado.all.map { |x| [x.nome, x.id, {data: {description: x.nome}}] }, wrapper_html: { class: 'col-md-5' } %>
+    <%= f.association :municipio, collection: @municipios.map { |x| [x[:nome], x[:id], {data: {description: x[:nome]}}] }, wrapper_html: { class: 'col-md-5' } %>
+    <%= f.input :logradouro, wrapper_html: { class: 'col-md-7' }  %>
+    <%= f.input :complemento, wrapper_html: { class: 'col-md-5' }  %>
+    <%= f.input :bairro, wrapper_html: { class: 'col-md-9' }  %>
+    <%= f.input :cod_ibge, wrapper_html: { class: 'col-md-3' }  %>
+
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+
+<script>
+var pessoa_municipio_nome = null;
+$( "#pessoa_cep" ).change(function() {
+  var cep = $(pessoa_cep).val();
+  $.get(`../consulta_cep/${cep}`, function(data) {
+    carregar_municipios(data.estado.id); 
+    $('#pessoa_estado_id').val(data.estado.id);
+    $('#pessoa_logradouro').val(data.logradouro);
+    $('#pessoa_bairro').val(data.bairro);
+    pessoa_municipio_nome = data.localidade; 
+    $('#pessoa_cod_ibge').val(data.ibge);
+  });
+});
+
+$( "#pessoa_estado_id" ).change(function() {
+    var id = $('#pessoa_estado_id').val()
+    carregar_municipios(id);
+});
+
+function carregar_municipios(id)
+{ 
+  $.get(`../consultar_municipio/${id}`, function(data) {
+    $('#pessoa_municipio_id').empty();
+    data.forEach(element => { 
+        $('#pessoa_municipio_id').append(`<option value="${element.id}">${element.nome}</option>`);
+      }
+    );
+    
+    if(pessoa_municipio_nome == null)
+      return
+
+    $("#pessoa_municipio_id option").filter(function() { 
+        return this.text == pessoa_municipio_nome; 
+    }).attr('selected', true);
+
+  });
+}
+ 
+
+var loadFile = function(event) {
+  var reader = new FileReader();
+  reader.onload = function(){
+    var output = document.getElementById('preview_img');
+    output.src = reader.result;
+  };
+  reader.readAsDataURL(event.target.files[0]);
+};
+</script>
