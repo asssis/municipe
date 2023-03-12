@@ -34,5 +34,3 @@ Pense que essas regras podem ser mudadas com uma frequência alta; Gostamos de o
 Tools: 
 Ruby, Ruby on Rails e Postgres são obrigatórios; Elasticsearch/Kafka (opcional, plus); Utilize ActionView, porém, AssetPipeline/Sprockets ou uma abordagem SPA junto ao rails; 
 
-Critérios: 
-TUDO, absolutamente TUDO, será olhado (sim, teremos carinho pelo seu tempo gasto e olharemos com destreza seu teste); Esse teste é backend, então, pesará muito como você realizou; Frontend é opcional para o seu caso, mas, irá contar muito positivo como você fará; Ver seu teste rodando em modo produção conta MUITO. Fica ao seu critério se faz e em qual plataforma; Lembre-se que o melhor de um profissional é sua atitude quanto a resolução de problemas. Interprete este item como desejar ;)
