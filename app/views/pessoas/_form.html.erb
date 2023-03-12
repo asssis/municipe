@@ -43,8 +43,9 @@ input[type="file"] {
 
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="form-actions mb-5">
+    <%= link_to "Voltar Pessoas", pessoas_path, class: "btn btn-outline-secondary" %> 
+    <%= f.button :submit, class: "btn btn-success" %>
   </div>
 <% end %>
 
