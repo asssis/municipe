@@ -44,7 +44,7 @@ end
 
 puts "==============gravando municipes================"
 
-10.times do
+600.times do
     begin
         endereco = enderecos[Random.rand(enderecos.length - 1)]
 
