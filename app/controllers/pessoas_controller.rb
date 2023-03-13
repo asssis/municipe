@@ -41,7 +41,10 @@ class PessoasController < ApplicationController
 
     respond_to do |format|
       if @pessoa.save
-        MunicipeMailer.with(municipe:  @pessoa).welcome_email.deliver!
+        begin
+          MunicipeMailer.with(municipe:  @pessoa).welcome_email.deliver!
+        rescue
+        end
         format.html { redirect_to pessoa_url(@pessoa), notice: "Pessoa was successfully created." }
         format.json { render :show, status: :created, location: @pessoa }
       else
@@ -64,7 +67,10 @@ class PessoasController < ApplicationController
   def update
     respond_to do |format|
       if @pessoa.update(pessoa_params)
-        MunicipeMailer.with(municipe:  @pessoa).alteracao_email.deliver!
+        begin
+          MunicipeMailer.with(municipe:  @pessoa).alteracao_email.deliver!
+        rescue
+        end
         format.html { redirect_to pessoa_url(@pessoa), notice: "Pessoa was successfully updated." }
         format.json { render :show, status: :ok, location: @pessoa }
       else
