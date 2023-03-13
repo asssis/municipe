@@ -33,4 +33,5 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
-/public/uploads/pessoa/imagem
+public/uploads/pessoa/imagem
+public/uploads/tmp/

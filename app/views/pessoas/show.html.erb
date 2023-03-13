@@ -29,7 +29,7 @@
   </div>
 <% end %>
 
-<div>
-  <%= link_to "Edit this pessoa", edit_pessoa_path(@pessoa) %> |
-  <%= link_to "Back to pessoas", pessoas_path %>
-</div>
+<div class="mb-5">
+  <%= link_to "Back to pessoas", pessoas_path, class: "btn btn-outline-secondary btn-sm" %>
+  <%= link_to "Edit this pessoa", edit_pessoa_path(@pessoa), class: "btn btn-outline-primary btn-sm" %> 
+</div> 
