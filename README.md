@@ -30,18 +30,18 @@
 
 # Apresentação
 
-## Tela de Apresentação, foi usado bootstrap no layout, kaminari para a paginação
+Tela de Apresentação, foi usado bootstrap no layout, kaminari para a paginação
 
 ![index](https://user-images.githubusercontent.com/13799390/224587181-dcdb1325-b5ac-41a9-bd5e-eab991763841.png)
 
-## Tela de Cadastro, foi colocado as validações necessarias, e fazendo uso da gem simpleform, facilita as mensagem de validações
+Tela de Cadastro, foi colocado as validações necessarias, e fazendo uso da gem simpleform, facilita as mensagem de validações
 
 ![new validation](https://user-images.githubusercontent.com/13799390/224587184-78d0c061-fd75-42b9-bb69-b4cd22394dbe.png)
 
-## Tela de detalhes, essa tela é apenas para a visualização dos dados.
+Tela de detalhes, essa tela é apenas para a visualização dos dados.
 ![detalhes](https://user-images.githubusercontent.com/13799390/224587177-ee641cd3-363c-4f37-a77c-06fbbdc5dd5c.png)
 
-## Integração Kaminari com ElasticSearch
+Integração Kaminari com ElasticSearch
 
 `@pessoas = Pessoa.__elasticsearch__.search(@filter).page(1).records`
 
