@@ -1,13 +1,25 @@
 
     <tr>
-      <td  class="align-middle"> <img src="<%= pessoa.imagem_url%>" style="width:100px; height:100px" class="img-thumbnail rounded-circle"></td>
-      <td  class="align-middle"> <%= pessoa.nome %></td>
-      <td  class="align-middle"><%= pessoa.email %></td>
-      <td  class="align-middle"><%= pessoa.logradouro %></td>
-      <td  class="align-middle"> <%= pessoa.bairro %></td>
-      <td  class="align-middle">
-       <%= link_to "Detalhes", pessoa, :class => "btn btn-outline-primary btn-sm", :style => "width: 100%" %> 
-       <%= link_to "Alterar", pessoa, :class => "btn btn-outline-secondary btn-sm", :style => "width: 100%" %> 
+      <td  class="align-middle"> <img src="<%= pessoa.imagem_url%>" style="width:100px; height:100px;" class="img-thumbnail rounded-circle"></td>
+      <td  class="align-middle" style="max-width: 150px;"> <%= pessoa.nome %></td>
+      <td  class="align-middle" style="max-width: 150px;"><%= pessoa.logradouro %></td>
+      <td  class="align-middle" style="max-width: 150px;"> <%= pessoa.bairro %></td>
+      <td  class="align-middle text-center" style="font-size:12px"> 
+        <%if pessoa.status %>
+          <label class="badge text-bg-success" >ATIVO<label>
+        <%else%>
+          <label class="badge text-bg-danger">DESATIVADO<label>
+        <% end %>
+      </td>
+      <td  class="align-middle" style="max-width: 110px;">
+       <%= link_to "Detalhes", pessoa, :class => "btn btn-outline-primary btn-sm  col-md-12"%> 
+       <%= link_to "Alterar", pessoa, :class => "btn btn-outline-secondary btn-sm  col-md-12" %> 
+       
+       <%if pessoa.status %>
+        <%= link_to "Desativar", "/alterar_status/#{pessoa.id}", :class => "btn btn-outline-danger btn-sm  col-md-12" %> 
+      <%else%>
+        <%= link_to "Ativar", "/alterar_status/#{pessoa.id}", :class => "btn btn-outline-success btn-sm  col-md-12" %> 
+      <% end %>
       </td> 
     </tr>
  

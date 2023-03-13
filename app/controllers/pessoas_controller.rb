@@ -28,6 +28,12 @@ class PessoasController < ApplicationController
                             .map{|x| {id: x.id, nome: x.nome, cod_ibge: x.cod_ibge}}
   end
 
+  def alterar_status
+    @pessoa = Pessoa.find(params[:id]) 
+    Pessoa.update(@pessoa.id, status: !@pessoa.status)
+    redirect_to "/pessoas"
+  end
+
   # POST /pessoas or /pessoas.json
   def create
     @pessoa = Pessoa.new(pessoa_params)

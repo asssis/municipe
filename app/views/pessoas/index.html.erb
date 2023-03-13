@@ -1,3 +1,8 @@
+<style>
+  .pull-right{
+    float: right;
+  }
+</style>
 <p style="color: green"><%= notice %></p>
 
 <h1>Municipes</h1>
@@ -17,11 +22,11 @@
   <tr>
   <th scope="col"></th>
     <th scope="col">Nome</th>
-    <th scope="col">Email</th>
     <th scope="col">Logradouro</th>
-    <th scope="col">Bairro</th>
-    <th scope="col">
-    <%= link_to "New pessoa", new_pessoa_path, class: "btn btn-outline-primary btn-sm pull-right col-md-12" %>
+    <th scope="col" style="max-width: 200px;">Bairro</th>
+    <th scope="col" class="text-center">Status</th>
+    <th style="max-width: 100px;">
+    <%= link_to "New pessoa", new_pessoa_path, class: "btn btn-outline-primary btn-sm pull-right",  :style => "width: 100%;"%>
     </th> 
   </tr>
 </thead>
