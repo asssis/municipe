@@ -47,6 +47,10 @@ Integração Kaminari com ElasticSearch
 
 ![pesquisa elastcsearch](https://user-images.githubusercontent.com/13799390/224587185-605f38ab-9628-4ffd-ad3c-90e66e44c116.png)
 
+Envio do email, foi integrado o maler nativo do Rails, usando o SMTP do google.
+
+![email teste](https://user-images.githubusercontent.com/13799390/224720999-313f4984-c377-43a3-b44d-c9444ad73c05.png)
+
 
 
 
