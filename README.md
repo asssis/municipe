@@ -1,6 +1,6 @@
 # Hospedagem
 
-  http://34.130.20.132:3000/pessoas
+http://34.122.79.117:3000/
 
 # Requisitos
 * Instalar o docker
