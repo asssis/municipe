@@ -1,4 +1,5 @@
-version: '3.3'
+version: "3.3"
+
 services:
   elasticsearch:
     container_name: es-container
@@ -6,41 +7,44 @@ services:
     ports:
       - "9200:9200"
     environment:
-      - "discovery.type=single-node"
-      - "cluster.name=elasticsearch-rails"
+      - discovery.type=single-node
+      - cluster.name=elasticsearch-rails
       - cluster.routing.allocation.disk.threshold_enabled=false
+      - xpack.security.enabled=false
     networks:
       - municipe
+
   postgres:
-    container_name: db-posgres
+    container_name: db-postgres
     image: postgis/postgis:12-3.2
     ports:
       - "5432:5432"
     volumes:
       - db_data:/var/lib/postgresql/data
-    networks:
-      - municipe
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=easy_password
+      - POSTGRES_DB=municipe_development
+    networks:
+      - municipe
+
   web_develop:
     container_name: app-municipe
     build: .
-    entrypoint: [ "/app/docker-entrypoint.sh" ]
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    entrypoint: ["/app/docker-entrypoint.sh"]
+    command: bundle exec rails s -p 3000 -b 0.0.0.0
     volumes:
       - .:/app
     ports:
       - "3000:3000"
-    networks:
-      - municipe
     depends_on:
       - elasticsearch
       - postgres
+    networks:
+      - municipe
 
 volumes:
   db_data:
-
 
 networks:
   municipe:
